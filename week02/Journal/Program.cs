@@ -1,4 +1,5 @@
 using System;
+// This is the Journal Project
 
 class Program
 {
