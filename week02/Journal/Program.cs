@@ -3,8 +3,21 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello World! This is the Journal Project.");
+        Journal theJournal = new Journal();
+        PromptGenerator promptGen = new PromptGenerator();
+
+        string prompt = promptGen.GetRandomPrompt();
+        Console.WriteLine(prompt);
+        Console.Write("Your response: ");
+        string response = Console.ReadLine();
+
+        string date = DateTime.Now.ToShortDateString();
+        Entry newEntry = new Entry(date, prompt, response);
+        theJournal.AddEntry(newEntry);
+
+        Console.WriteLine("\nYour journal entry:");
+        theJournal.DisplayALL();
     }
 }
