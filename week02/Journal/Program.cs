@@ -1,11 +1,10 @@
 using System;
-// This is the Journal Project
-
+using JournalProgram;
 class Program
 {
     static void Main()
     {
-        Journal theJournal = new Journal();
+        Journal Journal = new Journal();
         PromptGenerator promptGen = new PromptGenerator();
 
         string prompt = promptGen.GetRandomPrompt();
@@ -15,9 +14,9 @@ class Program
 
         string date = DateTime.Now.ToShortDateString();
         Entry newEntry = new Entry(date, prompt, response);
-        theJournal.AddEntry(newEntry);
+        Journal.AddEntry(newEntry);
 
         Console.WriteLine("\nYour journal entry:");
-        theJournal.DisplayALL();
+        Journal.DisplayAll();
     }
 }

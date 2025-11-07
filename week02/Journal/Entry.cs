@@ -1,6 +1,7 @@
 using System;
-
-public class Entry
+namespace JournalProgram
+{
+    public class Entry
 {
     private string _date;
     private string _promptText;
@@ -21,4 +22,6 @@ public class Entry
         Console.WriteLine($"Prompt: {_promptText}");
         Console.WriteLine($"Entry: {_entryText}\n");
     }
+}
+
 }

@@ -1,9 +1,12 @@
 using System;
-
 using System.Collections.Generic;
-using System.IO;        
+using System.IO;   
+
+namespace JournalProgram
 {
-    list<Entry> _entries = new list<Entry>();
+    public class Journal   
+{
+     private List<Entry> _entries = new List<Entry>();
 
      void AddEntry(Entry newEntry)
     {
@@ -49,5 +52,7 @@ using System.IO;
             Console.WriteLine("File not found.");
         }
     }
+}
+
 }
 
