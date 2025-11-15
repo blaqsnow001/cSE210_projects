@@ -1,29 +1,37 @@
-public class Word
+using System;
+
+// Represents a single word in the scripture
+class Word
 {
     private string _text;
     private bool _isHidden;
-}
-
-public hidden()
-{
-    isHidden = true;
-}
-public Show()
-{
-    isHidden = false;
-}
-public string isHidden()
-{
-    return _isHidden;
-}
-public string GetDisplayText()
-{
-    if (isHidden)
+    
+    public Word(string text)
     {
-        return"______";
+        _text = text;
+        _isHidden = false;
     }
-    else
+    
+    // Hides the word
+    public void Hide()
     {
+        _isHidden = true;
+    }
+    
+    // Checks if word is hidden
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
+    
+    // Returns display text (either the word or underscores)
+    public string GetDisplayText()
+    {
+        if (_isHidden)
+        {
+            return new string('_', _text.Length);
+        }
+        else
         {
             return _text;
         }

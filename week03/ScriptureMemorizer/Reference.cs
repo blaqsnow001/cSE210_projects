@@ -1,34 +1,41 @@
-public class Reference;
+using System;
+
+// Represents a scripture reference (e.g., "John 3:16" or "Proverbs 3:5-6")
+class Reference
 {
     private string _book;
     private int _chapter;
-    private int _verse ;
+    private int _startVerse;
     private int _endVerse;
-}
-
-Reference(book string , chapter int , verse int)
-{
-    _book = book;
-    _chapter = chapter;
-    _verse = verse;
-    _endVerse = verse;
-}
-
-Reference(book string , chapter int , verse int , endVerse int)
-{
-    _book = book;
-    _chapter = chapter;
-    _verse = verse;
-    _endVerse = endverse;
-}
-
-public string GetDisplayText()
-{
-    if (_verse == _endVerse)
-        return $"{_book} {_chapter}:{verse}";
-    else
+    
+    // Constructor for single verse (e.g., "John 3:16")
+    public Reference(string book, int chapter, int verse)
     {
-        return $"{_book} {_chapter}:{verse} - {_endVerse}";
+        _book = book;
+        _chapter = chapter;
+        _startVerse = verse;
+        _endVerse = verse;
     }
-
+    
+    // Constructor for verse range (e.g., "Proverbs 3:5-6")
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _startVerse = startVerse;
+        _endVerse = endVerse;
+    }
+    
+    // Returns formatted reference string
+    public string GetDisplayText()
+    {
+        if (_startVerse == _endVerse)
+        {
+            return $"{_book} {_chapter}:{_startVerse}";
+        }
+        else
+        {
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+        }
+    }
 }
